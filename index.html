@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Beam Racing Studio — competitive BeamNG motorsport. Races, standings, driver records and sign-ups.">
+<title>Beam Racing Studio | Official League</title>
+<link rel="icon" href="assets/brs-emblem.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="header">
+  <a class="brand" href="#home"><img src="assets/beam-racing-studio-logo.png" alt="Beam Racing Studio"></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  <nav id="nav" aria-label="Main">
+    <a href="#home">Home</a><a href="#events">Races</a><a href="#standings">Standings</a><a href="#drivers">Drivers</a><a href="#rules">Regulations</a><a href="#media">Media</a>
+  </nav>
+  <div class="header-buttons">
+    <div id="authSlot"><button class="btn btn-ghost" id="signInBtn" type="button">Log in</button><button class="btn btn-primary" id="signUpBtn" type="button">Sign up</button></div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="home">
+  <div class="hero-bg"></div><div class="hero-inner wrap">
+    <div class="eyebrow"><i></i> THE HOME OF COMPETITIVE BEAMNG MOTORSPORT</div>
+    <h1>FIND YOUR LINE.<br><span>OWN THE GRID.</span></h1>
+    <p>Competitive racing. Dedicated drivers. One community.<br>Welcome to Beam Racing Studio.</p>
+    <div class="hero-actions"><a class="btn btn-primary btn-big" href="#events">Race calendar <b>→</b></a><a class="btn btn-outline btn-big" href="#standings">Standings</a><a class="btn btn-outline btn-big" id="discordJoin" href="#" target="_blank" rel="noreferrer">Join Discord ↗</a></div>
+    <div class="hero-stats" id="heroStats" hidden>
+      <div><b id="statDrivers">0</b><span>DRIVERS</span></div><div><b id="statTeams">0</b><span>TEAMS</span></div><div><b id="statRaces">0</b><span>UPCOMING RACES</span></div>
+    </div>
+  </div>
+  <div class="hero-side-label">BRS <span>///</span> BEAMNG MOTORSPORT</div>
+</section>
+<div class="stripe-marquee"><span>BEAM RACING STUDIO&nbsp; // &nbsp;RACE CLEAN&nbsp; // &nbsp;RESPECT THE GRID&nbsp; // &nbsp;EARN YOUR PLACE&nbsp; // &nbsp;</span></div>
+
+<div class="notice wrap" id="setupNotice" hidden></div>
+
+<section class="section wrap" id="events">
+  <div class="section-heading"><div><div class="eyebrow">GET READY FOR LIGHTS OUT</div><h2>UPCOMING <span>RACES</span></h2></div>
+    <div class="filter" id="eventFilter" role="tablist" aria-label="Filter races"><button class="on" data-f="all">All</button><button data-f="free">Free</button><button data-f="paid">Paid</button></div></div>
+  <div class="race-grid" id="eventCards"><div class="skeleton-row"></div><div class="skeleton-row"></div><div class="skeleton-row"></div></div>
+</section>
+
+<section class="standings-section" id="standings"><div class="wrap">
+  <div class="section-heading"><div><div class="eyebrow">THE CHAMPIONSHIP FIGHT</div><h2>LEAGUE <span>STANDINGS</span></h2></div>
+    <div class="filter" id="standTabs" role="tablist"><button class="on" data-t="drivers" role="tab">Driver points</button><button data-t="teams" role="tab">Team points</button></div></div>
+  <div class="table-scroll"><table>
+    <thead id="standHead"></thead><tbody id="standBody"><tr><td colspan="5" class="empty-cell">Loading standings…</td></tr></tbody>
+  </table></div>
+  <small class="disclaimer">Points are read live from the league spreadsheet. Team points are the sum of each member's driver points.</small>
+</div></section>
+
+<section class="lookup-section" id="drivers"><div class="wrap lookup-layout">
+  <div class="lookup-intro"><div class="eyebrow">EVERY LAP LEAVES A MARK</div><h2>YOUR RECORD.<br><span>YOUR REPUTATION.</span></h2><p>Search the league database for class, license points, race points, wins, DNFs and team.</p></div>
+  <div class="data-panel"><div class="panel-head"><span><i class="live-dot"></i> DRIVER DATABASE</span><small id="driverCount">LEAGUE DATA</small></div>
+    <label for="driverSearch">DRIVER NAME</label>
+    <div class="search-line"><input id="driverSearch" placeholder="Start typing a name…" autocomplete="off"><button class="btn btn-primary" id="searchDriver" type="button">Search</button></div>
+    <div class="result-box" id="driverResult" aria-live="polite">Search for a driver to view their statistics.</div>
+  </div>
+</div></section>
+
+<section class="section wrap" id="payments"><div class="payment-block"><div><div class="eyebrow">SPECIAL RACES. SPECIAL ENTRY.</div><h2>PAID <span>EVENTS</span></h2><p>Some events carry an entry fee. The price is on the race card. Register, pay with the link shown on your entry, then add your payment reference so a steward can confirm you.</p></div><div class="payment-info"><div class="payment-symbol">✦</div><b>HOW PAID ENTRY WORKS</b><small>1. Log in &amp; register &nbsp; 2. Pay &nbsp; 3. Add your reference &nbsp; 4. Steward confirms</small><button class="btn btn-outline" type="button" data-open="account">MY ENTRIES →</button></div></div></section>
+
+<section class="rules-section" id="rules"><div class="wrap rules-layout"><div><div class="eyebrow">THE BRS STANDARD</div><h2>COMPETE HARD.<br><span>RACE FAIR.</span></h2><p>Clean racing and respect are at the heart of the league. Review the current regulations before entering an event.</p><a class="btn btn-primary" id="rulesLink" href="#" target="_blank" rel="noreferrer">READ THE REGULATIONS ↗</a></div><div class="rules-list"><article><b>01</b><span><strong>Respect the grid</strong><small>Race fairly and treat every driver with respect.</small></span></article><article><b>02</b><span><strong>Listen to race control</strong><small>Follow steward instructions and resolve incidents professionally.</small></span></article><article><b>03</b><span><strong>Protect your license</strong><small>Know the regulations and understand the license system.</small></span></article></div></div></section>
+
+<section class="section wrap" id="media"><div class="section-heading"><div><div class="eyebrow">THE ACTION DOESN'T END AT THE FLAG</div><h2>RACE <span>MEDIA</span></h2></div>
+  <div class="filter" id="mediaFilter"><button class="on" data-f="all">All</button><button data-f="video">Videos</button><button data-f="picture">Pictures</button></div></div>
+  <div class="media-grid" id="mediaGrid"><div class="empty">Loading media…</div></div></section>
+</main>
+
+<footer><div class="wrap footer-top"><img src="assets/beam-racing-studio-logo.png" alt="Beam Racing Studio"><p>Competitive BeamNG motorsport.<br>Built around the community.</p><div class="footer-nav"><a href="#events">Races</a><a href="#standings">Standings</a><a href="#drivers">Drivers</a><a href="#rules">Regulations</a></div></div><div class="wrap footer-bottom"><span>© <span id="year"></span> Beam Racing Studio</span><span>RACE CLEAN. EARN YOUR PLACE.</span></div></footer>
+
+<!-- Dialog: log in / sign up -->
+<dialog id="authDlg" aria-labelledby="authTitle"><div class="dlg">
+  <button class="x" data-close aria-label="Close">×</button>
+  <div class="eyebrow"><i></i> BRS DRIVER ACCOUNT</div>
+  <h3 id="authTitle">LOG IN OR SIGN UP</h3>
+  <p class="lead" id="authLead">Use your Google account. New here? Signing in creates your account and you'll set up your driver profile next.</p>
+  <div id="gsiButton" class="gsi"></div>
+  <p class="msg" id="authMsg" role="alert"></p>
+  <small class="disclaimer">We only receive your name, email and profile picture from Google. Your email is never shown publicly.</small>
+</div></dialog>
+
+<!-- Dialog: account (profile + my entries) -->
+<dialog id="accountDlg" aria-labelledby="accTitle"><div class="dlg wide">
+  <button class="x" data-close aria-label="Close">×</button>
+  <div class="eyebrow"><i></i> MY ACCOUNT</div>
+  <h3 id="accTitle">DRIVER PROFILE</h3>
+  <div class="tabs" id="accTabs"><button class="on" data-pane="profile">Profile</button><button data-pane="entries">My entries</button></div>
+  <div id="paneProfile">
+    <div class="my-stats" id="myStats" hidden></div>
+    <form id="profileForm" class="form">
+      <label for="pfDriver">IN-GAME DRIVER NAME</label><input id="pfDriver" required maxlength="40" placeholder="Exactly as it appears in BeamNG / the league sheet">
+      <label for="pfDiscord">DISCORD USERNAME</label><input id="pfDiscord" required maxlength="40" placeholder="e.g. beamracer">
+      <div class="two"><div><label for="pfNumber">CAR NUMBER</label><input id="pfNumber" maxlength="6" inputmode="numeric" placeholder="Optional"></div><div><label for="pfTeam">TEAM</label><input id="pfTeam" maxlength="40" placeholder="Optional"></div></div>
+      <button class="btn btn-primary full" type="submit">SAVE PROFILE <b>→</b></button>
+      <p class="msg" id="profileMsg" role="alert"></p>
+    </form>
+  </div>
+  <div id="paneEntries" hidden><div id="entriesList"></div></div>
+  <button class="btn btn-ghost" id="signOutBtn" type="button">Sign out</button>
+</div></dialog>
+
+<!-- Dialog: confirm race entry -->
+<dialog id="entryDlg" aria-labelledby="entryTitle"><div class="dlg">
+  <button class="x" data-close aria-label="Close">×</button>
+  <div class="eyebrow"><i></i> RACE ENTRY</div>
+  <h3 id="entryTitle"></h3>
+  <div id="entryBody"></div>
+</div></dialog>
+
+<!-- Dialog: media viewer -->
+<dialog id="mediaDlg" class="media-dlg" aria-label="Media viewer"><div class="dlg media-view">
+  <button class="x" data-close aria-label="Close">×</button><div id="mediaView"></div>
+</div></dialog>
+
+<!-- Admin panel -->
+<dialog id="adminDlg" class="admin-dlg" aria-labelledby="adminTitle"><div class="dlg admin">
+  <button class="x" data-close aria-label="Close">×</button>
+  <div class="eyebrow"><i></i> ADMIN</div>
+  <h3 id="adminTitle">LEAGUE CONTROL</h3>
+  <div class="tabs" id="adminTabs">
+    <button class="on" data-pane="aRaces">Races</button><button data-pane="aSignups">Sign-ups</button><button data-pane="aMedia">Videos &amp; pictures</button><button data-pane="aPay">Payments</button><button data-pane="aAdmins">Admins</button><button data-pane="aData">Data connection</button>
+  </div>
+  <p class="msg" id="adminMsg" role="status"></p>
+  <div id="adminBody"></div>
+</div></dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js"></script><script src="app.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer id="gsiScript"></script>
+</body></html>
